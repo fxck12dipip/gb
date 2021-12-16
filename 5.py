@@ -1,15 +1,17 @@
-prices = [57.8, 46.51, 97, 41, 13, 55.32, 123.5, 34, 11.4, 123, 44.3]
+import random
 
-new_list = []
-for price in prices:
-    roubles = int(price)
-    kop = round((price  - roubles) * 100)
-    new_list.append(f"{roubles} руб {kop} коп")
-print(", ".join(new_list))
-id1 = id(prices)
-prices.sort()
-print(prices)
-print(id(prices) == id1)
-my_list = sorted(prices, reverse=True)
-print(sorted(my_list[:5]))
+
+def get_jokes(jokes):
+    nouns = ["автомобиль", "лес", "огонь", "город", "дом"]
+    adverbs = ["сегодня", "вчера", "завтра", "позавчера", "ночью"]
+    adjectives = ["веселый", "яркий", "зеленый", "утопичный", "мягкий"]
+    joke = []
+    for i in range(jokes):
+        joke.append(f"{nouns[random.randint(0, 4)]} {adverbs[random.randint(0, 4)]} {adjectives[random.randint(0, 4)]}")
+    return joke
+
+
+count = int(input("Сколько шуток вы хотите?\n"))
+print(get_jokes(count))
+
 
